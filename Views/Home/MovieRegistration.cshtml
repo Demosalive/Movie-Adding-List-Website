@@ -1,0 +1,61 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+<h1>Movie Registration</h1>
+
+@model Movie
+
+@Html.ValidationSummary()
+
+<form action="../Home/DisplayPage" method="post">
+    @Html.LabelFor(m => m.ID)
+    @Html.ValidationMessageFor(m => m.ID)
+    <input type="text" name="ID" value="@Model.ID" />
+    <br />
+    @Html.LabelFor(m => m.Title)
+    @Html.ValidationMessageFor(m => m.Title)
+    <input type="text" name="Title" value="@Model.Title" />
+    <br />
+    @Html.LabelFor(m => m.Genre)
+    @Html.ValidationMessageFor(m => m.Genre)
+    <input type="text" name="Genre" value="@Model.Genre" />
+    <br />
+    @Html.LabelFor(m => m.Year)
+    @Html.ValidationMessageFor(m => m.Year)
+    <input min="1880" max="@DateTime.Today.Year" type="number" name="Year" value="@Model.Year" />
+    <br />
+    @Html.LabelFor(m => m.Actors)   
+    @Html.ValidationMessageFor(m => m.Actors)
+    <input type="text" name="Actors" pattern=".{0}[a-zA-Z0-9 ]+|.{2,50}[a-zA-Z0-9 ]+" title ="Either 0 or 2-50 characters" list="actors"
+    >
+    <br />
+    @Html.LabelFor(m => m.Actors)
+    @Html.ValidationMessageFor(m => m.Actors)
+    <input type="text" name="Actors" pattern=".{0}[a-zA-Z0-9 ]+|.{2,50}[a-zA-Z0-9 ]+" title ="Either 0 or 2-50 characters" list="actors"
+    >
+    <br />
+    @Html.LabelFor(m => m.Actors)
+    @Html.ValidationMessageFor(m => m.Actors)
+    <input type="text" name="Actors" pattern=".{0}[a-zA-Z0-9 ]+|.{2,50}[a-zA-Z0-9 ]+" title ="Either 0 or 2-50 characters" list="actors"
+    >
+    <br />
+    @Html.LabelFor(m => m.Directors)
+    @Html.ValidationMessageFor(m => m.Directors)
+    <input type="text" name="Directors" pattern=".{0}[a-zA-Z0-9 ]+|.{2,50}[a-zA-Z0-9 ]+" title ="Either 0 or 2-50 characters" list="actors"
+    >
+    <br />
+    @Html.LabelFor(m => m.Directors)
+    @Html.ValidationMessageFor(m => m.Directors)
+    <input type="text" name="Directors" pattern=".{0}[a-zA-Z0-9 ]+|.{2,50}[a-zA-Z0-9 ]+" title ="Either 0 or 2-50 characters" list="actors"
+    >
+    <br />
+    @Html.LabelFor(m => m.Directors)
+    @Html.ValidationMessageFor(m => m.Directors)
+    <input type="text" name="Directors" pattern=".{0}[a-zA-Z0-9 ]+|.{2,50}[a-zA-Z0-9 ]+" title ="Either 0 or 2-50 characters" list="actors"
+     >
+    <br/>
+    <input type="submit" value="Add your movie!" />
+</form>
