@@ -13,8 +13,8 @@ namespace Movies.Models
         public int ID { get; set; }
 
         [Required]
-        [RegularExpression(@"[\Wa-zA-Z0-9!@#$%^&*()_+=\[{\]};:<>|./?,\\'""-]+", ErrorMessage = "Choose a valid movie title")]
-        [Range (1,50)]
+        [RegularExpression(@"[\W\Sa-zA-Z0-9!@#$%^&*()_+=\[{\]};:<>|./?,\\'""-]+", ErrorMessage = "Choose a valid movie title")]
+        [StringLength(50, MinimumLength = 2)]
         public string Title { get; set; }
 
         [Required]

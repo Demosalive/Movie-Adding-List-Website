@@ -21,7 +21,15 @@
     <br />
     @Html.LabelFor(m => m.Genre)
     @Html.ValidationMessageFor(m => m.Genre)
-    <input type="text" name="Genre" value="@Model.Genre" />
+<select name="Genre">
+    <option value=""></option>
+    <option value="Action">Action</option>
+    <option value="Drama">Drama</option>
+    <option value="Scifi">Scifi</option>
+    <option value="Mystery">Mystery</option>
+    <option value="Romance">Romance</option>
+    <option value="Comedy">Comedy</option>
+</select>
     <br />
     @Html.LabelFor(m => m.Year)
     @Html.ValidationMessageFor(m => m.Year)
