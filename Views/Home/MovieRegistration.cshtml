@@ -10,7 +10,7 @@
 
 @Html.ValidationSummary()
 
-<form action="../Home/DisplayPage" method="post">
+<form action="../Home/SaveMovieToList" method="post">
     @Html.LabelFor(m => m.ID)
     @Html.ValidationMessageFor(m => m.ID)
     <input type="text" name="ID" value="@Model.ID" />

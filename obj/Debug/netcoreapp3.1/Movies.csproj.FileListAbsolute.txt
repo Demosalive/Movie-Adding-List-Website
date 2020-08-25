@@ -37,3 +37,4 @@ C:\Users\Curtis\source\repos\Movies\obj\Debug\netcoreapp3.1\Movies.pdb
 C:\Users\Curtis\source\repos\Movies\obj\Debug\netcoreapp3.1\Movies.genruntimeconfig.cache
 C:\Users\Curtis\source\repos\Movies\obj\Debug\netcoreapp3.1\Movies.csproj.CopyComplete
 C:\Users\Curtis\source\repos\Movies\obj\Debug\netcoreapp3.1\Razor\Views\Home\DisplayPage.cshtml.g.cs
+C:\Users\Curtis\source\repos\Movies\obj\Debug\netcoreapp3.1\Razor\Views\Home\ListMovies.cshtml.g.cs

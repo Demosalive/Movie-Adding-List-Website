@@ -2,8 +2,11 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
+using System.Text.Json;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.ModelBinding.Validation;
 using Microsoft.Extensions.Logging;
 using Movies.Models;
 
@@ -11,6 +14,8 @@ namespace Movies.Controllers
 {
     public class HomeController : Controller
     {
+        List<Movie> movieFilledList = new List<Movie>();
+
         private readonly ILogger<HomeController> _logger;
 
         public HomeController(ILogger<HomeController> logger)
@@ -50,6 +55,32 @@ namespace Movies.Controllers
             {
                 return View("MovieRegistration", movie);
             }
+        }
+
+        public IActionResult SaveMovieToList(Movie movie)
+        {
+            string movieListJSON = HttpContext.Session.GetString("MovieListSession") ?? "EmptySession";
+            if (movieListJSON != "EmptySession")
+            {
+                movieFilledList = JsonSerializer.Deserialize<List<Movie>>(movieListJSON);
+            }
+            movieFilledList.Add(movie);
+
+            movieListJSON = JsonSerializer.Serialize(movieFilledList);
+
+            HttpContext.Session.SetString("MovieListSession", movieListJSON);
+
+            return View("ListMovies", movieFilledList);
+        }
+
+        public IActionResult ListMovies()
+        {
+            string movieListJSON = HttpContext.Session.GetString("MovieListSession") ?? "EmptySession";
+            if (movieListJSON != "EmptySession")
+            {
+                movieFilledList = JsonSerializer.Deserialize<List<Movie>>(movieListJSON);
+            }
+            return View(movieFilledList);
         }
     }
 }
